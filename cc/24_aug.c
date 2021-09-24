@@ -238,3 +238,109 @@ Using-(user defined function) to read() and display() */
 // 		printf("chemistry cycle\n");
 // 	}
 // }
+
+
+//CGPA - Program:-
+
+// void main(){
+// 	float cgpa;
+// 	printf("Please enter your CGPA:\n");
+// 	scanf("%f", &cgpa);
+
+// 	if(cgpa>=9){
+// 		printf("Grade is:Outstanding\n");
+// 	}
+// 	else if(cgpa>7){
+// 		printf("Grade is:Excellent\n");
+// 	}
+// 	else if(cgpa>=5){
+// 		printf("Grade is:Good\n");
+// 	}
+// 	else if(cgpa>=4){
+// 		printf("Grade is:Pass\n");
+// 	}
+// 	else{
+// 		printf("Grade is:Fail\n");
+// 	}
+// }
+
+
+
+// 6 august 2021
+
+//Recursions:-
+
+/*2 types are 
+1.direct
+2.indirect 
+*/
+
+//direct recursion
+// int fact(int n);
+
+// void main(){
+// 	int n,result;
+// 	printf("Enter any number:");
+// 	scanf("%d",&n);
+
+// 	result=fact(n);
+// 	printf("%d factorial is %d\n",n,result);
+// }
+
+// int fact(int n){
+// 	if(n==1 || n==0){
+// 		return 1;
+// 	}
+// 	else{
+// 		return (n*fact(n-1));
+// 	}
+// }
+
+//indirect recursion
+//the function will call another function    -- have doubt in this
+
+// int n;
+// void odd();
+// void even();
+
+// void main(){
+// 	odd();
+// }
+
+// void odd(){
+// 	if(n<=10){
+// 		printf("%d\n",n+1);
+// 		n++;
+// 		even();
+// 	}
+// }
+// void even(){
+// 	if(n<=10){
+// 		printf("%d\n",n-1);
+// 		n++;
+// 		odd();
+// 	}
+// }
+
+
+//Tower of hanoi
+
+// for moving disks from pole a to pole c
+
+// void transfer(int n, char from, char to, char temp){
+// 	if(n>0){
+// 		{
+// 			transfer(n-1,from,temp,to);
+// 			printf("move disk %d from %c to %c \n",n,from,to);
+// 			transfer(n-1,temp,to,from);
+// 		}
+// 		return;
+// 	}
+// }
+// void main(){
+// 	int n;
+// 	printf("How many disks\n");
+// 	scanf("%d",&n);
+// 	transfer(n,'a','b','c');
+// 	return;
+// }

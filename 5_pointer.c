@@ -4,7 +4,7 @@
 // 	int i=20;
 // 	int *j=&i;
 // 	printf("the value of i=%d\n",i);
-// 	printf("the value of i=%d\n",*j);
+// 	printf("the value of i=%d\n",*j); //store the value of address(dereference)
 // 	//but to get the address v have to use format specifier
 // 	printf("the address of i=%u\n",j);
 // 	printf("the address of i=%u\n",&i);	
