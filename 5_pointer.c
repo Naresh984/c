@@ -139,3 +139,16 @@
 // 		printf("the have different address a=%u and b=%u \n",a,b);
 // 	}
 // }
+
+
+//GENRIC POINTERS:-
+
+
+int main(){
+	int a=10;float avg=85.66;
+	void *ptr=&a;
+	printf("%d\n",*(int*)ptr);		//tying casting  ---  explicit conversion
+	ptr=&avg;
+	printf("%f\n",*(float*)ptr);
+	return 0;
+}

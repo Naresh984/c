@@ -37,6 +37,7 @@
 // 	printf("the sum is=%d",sum);
 // }
 
+
 //26 august 2021
 
 //illustrate both increment and decrement operator
@@ -85,6 +86,7 @@
 // }
 
 
+
 //30 august 2021
 //factorial problem:- pg to find the factorial of a given number
 
@@ -121,6 +123,8 @@
 // 	displayf(factorial);
 // 	return 0;
 // }
+
+
 
 //31 august 2021
 
@@ -185,10 +189,11 @@ Using-(user defined function) to read() and display() */
 // 		}	
 // }
 
-//1 august - data structures theory about why do should v even use it
+
+//1 sep - data structures theory about why do should v even use it
 
 
-//6 august 2021
+//6 sep 2021
 
 //1.age calculater - to check whehter kishan(young person) is eligible to vote or not  USING USER DEFINED 
 
@@ -265,8 +270,7 @@ Using-(user defined function) to read() and display() */
 // }
 
 
-
-// 6 august 2021
+// 6 sep 2021
 
 //Recursions:-
 
@@ -344,3 +348,132 @@ Using-(user defined function) to read() and display() */
 // 	transfer(n,'a','b','c');
 // 	return;
 // }
+
+//9 sep 2021
+//Pointer arthimatic:-
+
+//example-1:-	//THIS pg  cleared my concept regarding * and &
+
+// int *rpointer(int *,int);
+
+// int main(){
+// 	int i,*ptr;
+// 	int arr[]={11,22,33,44,55};
+// 	i=4;
+// 	printf("Address of arr=%u\n", arr);
+// 	ptr=rpointer(arr,i);// arr=1000, i=4
+// 	printf("After incrementing by 4\n");
+// 	printf("Address of ptr=%u\n", ptr);
+// 	printf("Value at %u is %d \n",ptr,*ptr);
+// 	return 0;
+// }
+
+// int *rpointer(int *p,int n){
+// 	p=p+n;//if p=1000 then n=4 then p=1000+4*4
+// 	return p;
+// }
+
+
+//example-2:-
+
+// int *abc();
+
+// int main(){
+// 	int *ptr;
+// 	ptr=abc();
+// 	printf("%d\n",*ptr);
+// 	return 0;
+// }
+
+// int *abc(){
+// 	int x=100,*p;
+// 	p=&x;
+// 	return p;
+// }
+
+//To find the square root
+
+// #include <math.h>
+
+// void fun(int n,int *square,double *sq_root){
+// 	*square=n*n;
+// 	*sq_root=sqrt(n);
+// }
+
+// int main(){
+// 	int n=100;
+// 	int sq;
+// 	double sq_root;
+// 	fun(n,&sq,&sq_root);
+// 	printf("%d %f\n",sq,sq_root);
+// 	return 0;
+// }
+
+//WAP to swap two integers using user defined function:
+
+//a=1 //b=2
+// int swap(int *a,int *b){
+// 	int temp;
+// 	temp=*a;//temp=1
+// 	*a=*b;//a=2
+// 	*b=temp;//b=1
+// 	}
+
+// int main(){
+// 	int a,b;
+// 	printf("Enter the first number\n");
+// 	scanf("%d",&a);
+// 	printf("Enter the second number\n");
+// 	scanf("%d",&b);
+// 	swap(&a,&b);
+// 	printf("Value of \nfirst number=%d\nsecond number=%d",a,b);
+// 	return 0;
+// }
+
+
+//SBI ACCOUNT -- HARI  // I LIKE THIS PROGRAM my favourite
+
+#include <stdlib.h>
+
+void deposit(int *account,int amount);
+void withdraw(int *account,int amount);
+void display(int *account);
+
+void main(){
+	int choice, amount, local_account=0;
+
+	for(;;)		//infinte loop      	//menu driven code -- to repeat
+	{
+		printf("Enter you choice:\n1.deposit\n2.credit\n3.check balance\n4.exit\n");
+		scanf("%d",&choice);
+
+		switch(choice)
+		{
+			case 1: printf("Enter the amount to deposit:");
+					scanf("%d",&amount);
+					deposit(&local_account,amount);
+					break;
+			case 2: printf("Enter the amount to withdraw:");
+					scanf("%d",&amount);
+					withdraw(&local_account,amount);
+					break;
+			case 3: display(&local_account);
+					break;
+			case 4: exit(0);
+					break;
+			default:printf("please enter vaid input from the above options\n");
+		}
+	}
+}
+
+void deposit(int *account, int amount){
+	*account=*account + amount;
+}
+
+void withdraw(int *account, int amount){
+	*account=*account - amount;
+}
+
+void display(int *account){
+	printf("The balance in the account is %d\n",*account);
+}
