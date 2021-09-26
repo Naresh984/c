@@ -433,47 +433,90 @@ Using-(user defined function) to read() and display() */
 
 //SBI ACCOUNT -- HARI  // I LIKE THIS PROGRAM my favourite
 
-#include <stdlib.h>
+// #include <stdlib.h>
 
-void deposit(int *account,int amount);
-void withdraw(int *account,int amount);
-void display(int *account);
+// void deposit(int *account,int amount);
+// void withdraw(int *account,int amount);
+// void display(int *account);
+
+// void main(){
+// 	int choice, amount, local_account=0;
+
+// 	for(;;)		//infinte loop      	//menu driven code -- to repeat it 
+// 	{
+// 		printf("Enter you choice:\n1.deposit\n2.credit\n3.check balance\n4.exit\n");
+// 		scanf("%d",&choice);
+
+// 		switch(choice)
+// 		{
+// 			case 1: printf("Enter the amount to deposit:");
+// 					scanf("%d",&amount);
+// 					deposit(&local_account,amount);
+// 					break;
+// 			case 2: printf("Enter the amount to withdraw:");
+// 					scanf("%d",&amount);
+// 					withdraw(&local_account,amount);
+// 					break;
+// 			case 3: display(&local_account);
+// 					break;
+// 			case 4: exit(0);
+// 					break;
+// 			default:printf("please enter vaid input from the above options\n");
+// 		}
+// 	}
+// }
+
+// void deposit(int *account, int amount){
+// 	*account=*account + amount;
+// }
+
+// void withdraw(int *account, int amount){
+// 	*account=*account - amount;
+// }
+
+// void display(int *account){
+// 	printf("The balance in the account is %d\n",*account);
+// }
+
+
+//STRUCTURES:-
+
+//pg-1
+// struct student{
+// 	char name[20];
+// 	int id;
+// 	int m1,m2,m3;
+// };
+
+// struct student st1;
+
+// void main(){
+// 	printf("Enter the name:");
+// 	scanf("%s",st1.name);
+
+// 	printf("Enter the id:");
+// 	scanf("%d",&st1.id);
+
+// 	printf("Enter the marks:\n");
+// 	scanf("%d%d%d",&st1.m1,&st1.m2,&st1.m3);
+
+// 	printf("The detials of the student\n");
+// 	printf("Name:%s\nID:%d\nMarks:%d\t%d\t%d\t",st1.name,st1.id,st1.m1,st1.m2,st1.m3);
+// }
+
+//2.Wap to compare the info of two students;
+
+#include <string.h> 	// to use strcmp function vhave to use include this
+
+struct student{
+	char name[20];
+	int roll;
+};
 
 void main(){
-	int choice, amount, local_account=0;
-
-	for(;;)		//infinte loop      	//menu driven code -- to repeat
-	{
-		printf("Enter you choice:\n1.deposit\n2.credit\n3.check balance\n4.exit\n");
-		scanf("%d",&choice);
-
-		switch(choice)
-		{
-			case 1: printf("Enter the amount to deposit:");
-					scanf("%d",&amount);
-					deposit(&local_account,amount);
-					break;
-			case 2: printf("Enter the amount to withdraw:");
-					scanf("%d",&amount);
-					withdraw(&local_account,amount);
-					break;
-			case 3: display(&local_account);
-					break;
-			case 4: exit(0);
-					break;
-			default:printf("please enter vaid input from the above options\n");
-		}
+	struct student st1={"naresh",4},st2;
+	st2=st1;
+	if( strcmp(st1.name,st2.name)==0 && (st1.roll==st2.roll)){ 
+		printf("Student 1 and student 2 are same\n");
 	}
-}
-
-void deposit(int *account, int amount){
-	*account=*account + amount;
-}
-
-void withdraw(int *account, int amount){
-	*account=*account - amount;
-}
-
-void display(int *account){
-	printf("The balance in the account is %d\n",*account);
 }

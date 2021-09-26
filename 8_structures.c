@@ -32,13 +32,13 @@
 
 //1.write a pg to store details of 2 employees from user defined data
 
-// struct employee{
-// 	char name[10];
+// struct employee{						//structure name- employee	
+// 	char name[10]; 						//members of the structure 
 // 	float salary;
 // };
 
 // int main(){
-// 	struct employee e1,e2;
+// 	struct employee e1,e2;				//variables of the structure are e1,2
 // 	printf("Enter the name of e1:");
 // 	scanf("%s", e1.name);
 // 	printf("Enter the salary of e1:");
@@ -64,9 +64,11 @@ struct  employee
 };
 
 int main(){
-	struct employee harry = {100,450.45,"Damon"};
+	struct employee harry = {100,45000.40,"Damon"},harsha;
+	harsha=harry; 	//valid
 	printf("Name is:%s\n",harry.name);
 	printf("code is:%d\n",harry.code);
 	printf("salary is:%f\n",harry.salary);
+	printf("salary of harsha is %f\n",harsha.salary);
 	return 0;
 }
