@@ -481,42 +481,198 @@ Using-(user defined function) to read() and display() */
 
 //STRUCTURES:-
 
-//pg-1
-// struct student{
+// //pg-1
+// struct student{				//Declared structure 
 // 	char name[20];
-// 	int id;
+// 	char id[16];
 // 	int m1,m2,m3;
 // };
 
-// struct student st1;
+// struct student st1;			//Declared variables of the structure globally
 
 // void main(){
 // 	printf("Enter the name:");
 // 	scanf("%s",st1.name);
 
 // 	printf("Enter the id:");
-// 	scanf("%d",&st1.id);
+// 	scanf("%s",&st1.id);
 
 // 	printf("Enter the marks:\n");
 // 	scanf("%d%d%d",&st1.m1,&st1.m2,&st1.m3);
 
 // 	printf("The detials of the student\n");
-// 	printf("Name:%s\nID:%d\nMarks:%d\t%d\t%d\t",st1.name,st1.id,st1.m1,st1.m2,st1.m3);
+// 	printf("Name:%s\nID:%s\nMarks:%d\t%d\t%d\t",st1.name,st1.id,st1.m1,st1.m2,st1.m3);
 // }
 
 //2.Wap to compare the info of two students;
 
-#include <string.h> 	// to use strcmp function vhave to use include this
+// #include <string.h> 	// to use strcmp function vhave to use include this
 
-struct student{
-	char name[20];
-	int roll;
-};
+// struct student{
+// 	char name[20];
+// 	int roll;
+// };
+
+// void main(){
+// 	struct student st1={"naresh",4},st2; //Declared variables of the structure locally
+// 	st2=st1;
+// 	if( strcmp(st1.name,st2.name)==0 && (st1.roll==st2.roll)){ 
+// 		printf("Student 1 and student 2 are same\n");
+// 	}
+// 	else{
+// 		printf("student 1 and student 2 are not same\n");
+// 	}
+// }
+
+// //3.wap to help mr.arjun(nutroinst) take info like age,height,weight & displaythatinfo
+
+// struct cinfo
+// {
+// 	int age;
+// 	float height;
+// 	float weight;
+// };
+// void main(){
+// 	struct cinfo c1,c2,c3,p4;
+// 	printf("Enter the age,height and weight for client 1:");
+// 	scanf("%d%f%f",&c1.age,&c1.height,&c1.weight);
+
+// 	printf("Enter the age,height and weight for client 2:");
+// 	scanf("%d%f%f",&c2.age,&c2.height,&c2.weight);
+
+// 	printf("Enter the age,height and weight for client 3:");
+// 	scanf("%d%f%f",&c3.age,&c3.height,&c3.weight);
+	
+// 	//comparing age
+// 	if(c1.age==c2.age && c2.age==c3.age && c1.age==c3.age){
+// 		printf("age of all the client's is same\n");
+// 	}
+// 	else if(c1.age==c2.age){
+// 		printf("client 1 and client 2 age is same\n");
+// 	}
+// 	else if(c2.age==c3.age){
+// 		printf("client 2 and client 3 age is same\n");
+// 	}
+// 	else if(c1.age==c3.age){
+// 		printf("client 1 and client 3 age is same\n");
+// 	}
+// 	else{
+// 		printf("all have different age\n");
+// 	}
+
+// 	//average
+// 	p4.age=c1.age+c2.age+c3.age;
+// 	p4.height=c1.height+c2.height+c3.height;
+// 	p4.weight=c1.weight+c2.weight+c3.weight;
+// 	printf("Average age of all 3 client's is=%d\n",p4.age/3);
+// 	printf("Average height of all 3 client's is=%f\n",p4.height/3);
+// 	printf("Average weight of all 3 client's is=%f\n",p4.weight/3);
+// }
+
+
+//PARTIAL INITIALIZATION:-
+
+// struct student
+// {
+// 	char name[20];
+// 	int roll;
+// 	char remarks;
+// 	float marks;
+// };
+// void main(){
+// 	struct student s1={"Anishaa",45};
+// 	printf("Name=%s\n",s1.name);
+// 	printf("Roll=%d\n",s1.roll);
+// 	printf("Remarks=%c\n",s1.remarks);
+// 	printf("Marks=%f\n",s1.marks);
+// }
+
+
+//1.wap to display the details of 'n' students such as name,id,marks using structure
+
+// struct student
+// {
+// 	char name[20];	//20 bytes
+// 	char id[20];	//20 bytes
+// 	float m1;		//8  bytes
+// };
+// struct student st[70];	//70*48 bytes of memory will be allocated
+
+// void main(){
+// 	int n;
+// 	printf("Enter the total students:\n");
+// 	scanf("%d",&n);
+// 	printf("Enter the details of the students\n");
+
+// 	for(int i=1;i<=n;i++)
+// 	{
+// 		printf("Enter the name of student %d\n",i);
+// 		scanf("%s",st[i].name);
+// 		printf("Enter the id of student %d\n",i);
+// 		scanf("%s",st[i].id);
+// 		printf("Enter the marks of student %d\n",i);
+// 		scanf("%f",&st[i].m1);
+// 	}
+// 	printf("\nDisplay the details of n students\n");
+// 	for(int i=1;i<=n;i++)
+// 	{
+// 		printf("the name of student %d is %s\n",i,st[i].name);
+// 		printf("the id of student %d is %s\n",i,st[i].id);
+// 		printf("the marks of student %d is %f\n",i,st[i].m1);
+// 	}
+// }
+
+// // 2.define a structure of employe dta members name,address,age and salary and find avgof salary
+
+// struct  employee
+// {
+// 	char name[20];		//20 bytes		
+// 	char address[20];	//20 bytes
+// 	int age;			//2 bytes
+// 	float salary;		// 8 bytes
+// };
+
+// struct employee e[10],e1;	//30*10 bytes
+
+// void main()
+// {
+// 	int n,i=1,t=0; // total salary
+// 	printf("Enter the no. of employees:\n");
+// 	scanf("%d",&n);
+
+// 	for(i=1;i<=n;i++){
+// 		printf("Enter the name, address , age and salary for employee %d\n",i);
+// 		scanf("%s%s%d%f",e[i].name,e[i].address,&e[i].age,&e[i].salary);
+// 	}
+
+// 	for(i=1;i<=n;i++){
+// 		t=t+e[i].salary;// total salary
+// 	}
+// 	printf("Average salary of employees is %f\n",(float)t/n);
+// }
+
+
+//NOW ABSTRACT DATA TYPE :- should refer this concept in that labsheet 
+
+typedef int age;
+typedef float height;
+typedef char name[50];
 
 void main(){
-	struct student st1={"naresh",4},st2;
-	st2=st1;
-	if( strcmp(st1.name,st2.name)==0 && (st1.roll==st2.roll)){ 
-		printf("Student 1 and student 2 are same\n");
-	}
+	age my_age;			//declaration of age,height and name
+	height my_height;
+	name my_name;
+
+	printf("Enter the age:\n");
+	scanf("%d",&my_age);
+	printf("Enter the height:\n");
+	scanf("%f",&my_height);
+	printf("Enter the name\n");
+	scanf("%s",my_name);
+
+	printf("The age of %s is %d and height is %.2f \n",my_name,my_age,my_height);
 }
+
+
+
+
