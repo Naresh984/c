@@ -751,7 +751,7 @@ Using-(user defined function) to read() and display() */
 
 
 /*Enumeration-
-an enumberated type is a user defined type which is used to assign names to integral constants
+an enumerated type is a user defined type which is used to assign names to integral constants
 bcz names are easier to handle in program
 Facts:-
 1.Two or more names can have same value.
@@ -765,12 +765,15 @@ Facts:-
 
 //fact1 and fact2
 
-int main(){
-	enum point1 {x=0,y=0,z=0,t};
-	enum point2 {x=0,y=0,z=0,t}; // not allowed v are redeclaring the values x,y,z
-	printf("%d %d %d %d \n",x,y,z,t);
-	return 0;
-}
+// int main(){
+// 	enum point1 {x=0,y=0,z=0,t};
+// 	enum point2 {x=0,y=0,z=0,t};//not allowed v are redeclaring the values x,y,z(uncommentto run)
+// 	printf("%d %d %d %d \n",x,y,z,t);
+// 	return 0;
+// }
+
+
+
 
 
 
