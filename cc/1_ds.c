@@ -433,50 +433,50 @@ Using-(user defined function) to read() and display() */
 
 //SBI ACCOUNT -- HARI  // I LIKE THIS PROGRAM my favourite
 
-// #include <stdlib.h>
+#include <stdlib.h>
 
-// void deposit(int *account,int amount);
-// void withdraw(int *account,int amount);
-// void display(int *account);
+void deposit(int *account,int amount);
+void withdraw(int *account,int amount);
+void display(int *account);
 
-// void main(){
-// 	int choice, amount, local_account=0;
+void main(){
+	int choice, amount, local_account=0;
 
-// 	for(;;)		//infinte loop      	//menu driven code -- to repeat it 
-// 	{
-// 		printf("Enter you choice:\n1.deposit\n2.credit\n3.check balance\n4.exit\n");
-// 		scanf("%d",&choice);
+	for(;;)		//infinte loop      	//menu driven code -- to repeat it 
+	{
+		printf("Enter you choice:\n1.deposit\n2.credit\n3.check balance\n4.exit\n");
+		scanf("%d",&choice);
 
-// 		switch(choice)
-// 		{
-// 			case 1: printf("Enter the amount to deposit:");
-// 					scanf("%d",&amount);
-// 					deposit(&local_account,amount);
-// 					break;
-// 			case 2: printf("Enter the amount to withdraw:");
-// 					scanf("%d",&amount);
-// 					withdraw(&local_account,amount);
-// 					break;
-// 			case 3: display(&local_account);
-// 					break;
-// 			case 4: exit(0);
-// 					break;
-// 			default:printf("please enter vaid input from the above options\n");
-// 		}
-// 	}
-// }
+		switch(choice)
+		{
+			case 1: printf("Enter the amount to deposit:");
+					scanf("%d",&amount);
+					deposit(&local_account,amount);
+					break;
+			case 2: printf("Enter the amount to withdraw:");
+					scanf("%d",&amount);
+					withdraw(&local_account,amount);
+					break;
+			case 3: display(&local_account);
+					break;
+			case 4: exit(0);
+					break;
+			default:printf("please enter vaid input from the above options\n");
+		}
+	}
+}
 
-// void deposit(int *account, int amount){
-// 	*account=*account + amount;
-// }
+void deposit(int *account, int amount){
+	*account=*account + amount;
+}
 
-// void withdraw(int *account, int amount){
-// 	*account=*account - amount;
-// }
+void withdraw(int *account, int amount){
+	*account=*account - amount;
+}
 
-// void display(int *account){
-// 	printf("The balance in the account is %d\n",*account);
-// }
+void display(int *account){
+	printf("The balance in the account is %d\n",*account);
+}
 
 
 //STRUCTURES:-
