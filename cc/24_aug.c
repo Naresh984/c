@@ -652,26 +652,128 @@ Using-(user defined function) to read() and display() */
 // }
 
 
-//NOW ABSTRACT DATA TYPE :- should refer this concept in that labsheet 
+// //NOW ABSTRACT DATA TYPE :- should refer this concept in that labsheet 
 
-typedef int age;
-typedef float height;
-typedef char name[50];
+// typedef int age;
+// typedef float height;
+// typedef char name[50];
 
-void main(){
-	age my_age;			//declaration of age,height and name
-	height my_height;
-	name my_name;
+// void main(){
+// 	age my_age;			//declaration of age,height and name
+// 	height my_height;
+// 	name my_name;
 
-	printf("Enter the age:\n");
-	scanf("%d",&my_age);
-	printf("Enter the height:\n");
-	scanf("%f",&my_height);
-	printf("Enter the name\n");
-	scanf("%s",my_name);
+// 	printf("Enter the age:\n");
+// 	scanf("%d",&my_age);
+// 	printf("Enter the height:\n");
+// 	scanf("%f",&my_height);
+// 	printf("Enter the name\n");
+// 	scanf("%s",my_name);
 
-	printf("The age of %s is %d and height is %.2f \n",my_name,my_age,my_height);
+// 	printf("The age of %s is %d and height is %.2f \n",my_name,my_age,my_height);
+// }
+
+
+// //Nested Structure A structure inside another structure we term as nested structure.
+
+// #include <string.h>
+
+// typedef char name[40];
+// typedef int id;
+
+// struct employee
+// {
+// 	name e_name;
+// 	id e_id;
+// 	struct date
+// 	{
+// 		int dd;
+// 		int mm;
+// 		int yyyy;
+// 	}doj;			//doj - is date of joining 
+// };
+
+// typedef struct employee Employee;
+
+// void main()
+// {
+// 	Employee e;
+// 	e.e_id=122;
+// 	strcpy(e.e_name,"Naresh");
+// 	e.doj.dd=12;
+// 	e.doj.mm=8;
+// 	e.doj.yyyy=2020;
+// 	printf("employee id: %d\n",e.e_id);
+// 	printf("employee name: %s\n",e.e_name);
+// 	printf("employee date of joining: %d/%d/%d \n",e.doj.dd,e.doj.mm,e.doj.yyyy);
+
+// }
+
+// UNIONS
+
+/*facts
+1.union is user defined data type but unlike structures, union members share same memory location.
+2.size of union is taken according to the size of the largest member of the union.
+3.They share same memory location,if v make changes in one member then it will be reflected to other
+  member as well.
+*/
+
+//fact3
+// union abc
+// {
+// 	int a;
+// 	char b;
+// }var;
+
+// int main(){
+// 	var.a=70;
+// 	printf("a=%d\n",var.a);//output a=70
+// 	printf("b=%c\n",var.b);//output b=F ascii of 70 samememo location output so b=a a is 70
+// 	return 0;
+// }
+
+//accessing members using pointers  (using arrow ->) and also know the sizeof union 
+
+// union abc
+// {
+// 	int a;
+// 	char b;
+// };
+// int main()
+// {
+// 	union abc var;
+// 	var.a=80;
+// 	union abc *p=&var;
+// 	printf("%d %c\n",p->a,p->b);
+// 	printf("%ld \n",sizeof(union abc)); // sizeof the union  
+// 	return 0;
+// }
+
+
+/*Enumeration-
+an enumberated type is a user defined type which is used to assign names to integral constants
+bcz names are easier to handle in program
+Facts:-
+1.Two or more names can have same value.
+2.v can assign values in any order.all unassigned names will get values of previous name+1.
+3.only integral values are allowed.
+	will through an error if i give float values
+	(error: enumerator value for ‘y’ is not an integer constant)
+4.all enum constant must be unique in their scope.
+	(error: redeclaration of enumerator ‘x’)
+*/
+
+//fact1 and fact2
+
+int main(){
+	enum point1 {x=0,y=0,z=0,t};
+	enum point2 {x=0,y=0,z=0,t}; // not allowed v are redeclaring the values x,y,z
+	printf("%d %d %d %d \n",x,y,z,t);
+	return 0;
 }
+
+
+
 
 
 
