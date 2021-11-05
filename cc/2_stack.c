@@ -265,109 +265,231 @@ which in turn have higher precedence than addition and multiplication.
 
 //CIRCULAR QUEUE IMPLEMENTATION USING ARRAYS:-
 
-#include<stdlib.h>
-#define N 2
+// #include<stdlib.h>
+// #define N 2
 
-int queue[N];
-int front=-1;
-int rear=-1;
+// int queue[N];
+// int front=-1;
+// int rear=-1;
 
-//to insert
-void enqueue(int x)
+// //to insert
+// void enqueue(int x)
+// {
+//   if(front==-1 && rear==-1)       //1.when queue is empty and we insert 
+//   {
+//     front=rear=0;
+//     queue[rear]=x;
+//   }
+//   else if(((rear+1)%N)==front)                       //2.when queue is full here v can't insert
+//   {       
+//     printf("queue is full\n");
+//   }
+//   else                            //3.when we can insert a item(some position is left) and incrementing rear 
+//   {
+//     rear=((rear+1)%N);            //to increment rear
+//     queue[rear]=x;
+//   }
+// }
+
+// //for deletion
+// void dequeue()
+// {
+//   if(front==-1 && rear==-1)       //1.when they are full
+//   {
+//     printf("Queue is full\n");
+//   }
+//   else if(front==rear)            //2.when front and rear are same and v have to delete
+//   {
+//     printf("Deleted item  is: %d\n",queue[front]);
+//     front=rear=-1;
+//   }
+//   else                            //3.when they have item at different positions
+//   {                         
+//     printf("Deleted item  is: %d\n",queue[front]);
+//     front=(front+1)%N;
+//   }
+// }
+
+// //display
+// void display()
+// {
+//   if(front==-1 && rear==-1)
+//   {
+//     printf("The queue is empty\n");
+//   }                         
+//   else
+//   {
+//     int i=front;
+//     printf("Queue is:-\n");
+//     while(i!=rear)
+//     {
+//       printf("%d\t",queue[i]);
+//       i=(i+1)%N;                  //to increase the size
+//     }
+//     printf("%d\t",queue[rear]);
+//   }
+// }
+
+// //Peek:-to get the front value
+
+// void peek()
+// {
+//   if(front==-1 && rear==-1)
+//   {
+//     printf("The queue is empty\n");
+//   }
+//   else
+//   {
+//     printf("%d\n",queue[front]);
+//   }
+// }
+
+// void main(){
+
+//  int x, choice;
+//  while(1)
+//  {
+//    printf("\n\n***** MENU *****\n");
+//    printf("1.Push \n2.Delete \n3.Display \n4.Peek\n5. Exit");
+//    printf("\nEnter your choice: ");
+//    scanf("%d",&choice);
+//    switch(choice)
+//    {
+//      case 1:printf("Enter the value to be insert: ");
+//             scanf("%d",&x);
+//             enqueue(x);
+//             break;
+//      case 2:dequeue();
+//             break;
+//      case 3:display();
+//             break;
+//      case 4:peek();
+//             break;
+//      case 5:printf("****EXIT****\n");
+//             exit(0);
+//      default:printf("\nInvalid choice!!! Try again!!!");
+//    }
+// }
+// }
+
+// //Dynamic memory allocation
+// #include <stdlib.h>
+// //what is malloc?
+// //reserves requested size of bytes.
+
+// //why should we do typecasting?
+// //malloc returns a void pointer it doesn't have the idea what data it is returning so we need to do the typecasting.
+
+// //syntax:-
+// //ptr=(castetype*)malloc(size)
+
+// //example:-
+// // int *ptr;
+// // ptr=(int*)malloc(20);
+
+// int i,n;
+// float *ptr,sum=0;
+
+// int avg(){
+//     //if dynamic allocation failed exit the program
+//   if(ptr==NULL)
+//   {
+//     printf("Memory allocation failed\n");
+//     exit(1);    //exit the program
+//   }
+//   else{
+//     printf("Memory sussefully allocated\n");
+//     for(i=0;i<n;i++)
+//     {
+//       printf("Enter marks for %d student:", i+1);
+//       scanf("%f",(ptr+i));
+//     }
+//     for(i=0;i<n;i++)
+//     {
+//       sum+=*(ptr+i);
+//     }
+//     printf("\n Average marks=%.2f\n",sum/n);
+//     // free(ptr);
+//   /*free allows you to release or deallocate the memory blocks which are previously allocated by calloc(),r realloc() functions.
+// the memory allocated in heap will not be released automatically after using the memory.the space remains there and can't be used
+
+// it's programmers responsiblity to release the memory after use.
+// */
+//     return 0;
+//   }
+// }
+
+// void main()
+// {
+
+//   printf("Enter the number of students:\n"); 
+//   scanf("%d",&n);
+
+//   //allocate memory to store n float values
+//   ptr=(float*)malloc(n*sizeof(float));
+
+//   avg();
+//   printf("Enter the new size of the array:\n");
+//   scanf("%d",&n);
+
+//    //dynmacilly re-allocate memory using realloc() , now size is increased
+//   ptr=realloc(ptr,n*sizeof(int));
+//   avg();
+//   free(ptr);
+// }
+
+
+
+/*difference between malloc and calloc 
+malloc:-
+1.it intilizes the starting value as garbage value.default
+
+calloc:-
+1.it initilizes the starting value as zero.
+2.in calloc v use two parameters. no.of blocks and size of each block
+
+realloc:-
+1.v can reallocate which means decrease or increase the size of the memory.
+2.is used once the memory is allocated either using malloc or calloc.
+
+Node:- is nothing but a memory location.
+
+have a doubt difference between format specifiers.
+
+*/
+
+
+//Linked list
+
+#include <stdlib.h>
+
+struct node
 {
-  if(front==-1 && rear==-1)       //1.when queue is empty and we insert 
-  {
-    front=rear=0;
-    queue[rear]=x;
-  }
-  else if(((rear+1)%N)==front)                       //2.when queue is full here v can't insert
-  {       
-    printf("queue is full\n");
-  }
-  else                            //3.when we can insert a item(some position is left) and incrementing rear 
-  {
-    rear=((rear+1)%N);            //to increment rear
-    queue[rear]=x;
-  }
-}
+  int data;
+  struct node *link;
+};
+typedef struct node *list;
+list x,y,z;
 
-//for deletion
-void dequeue()
+void main()
 {
-  if(front==-1 && rear==-1)       //1.when they are full
-  {
-    printf("Queue is full\n");
-  }
-  else if(front==rear)            //2.when front and rear are same and v have to delete
-  {
-    printf("Deleted item  is: %d\n",queue[front]);
-    front=rear=-1;
-  }
-  else                            //3.when they have item at different positions
-  {                         
-    printf("Deleted item  is: %d\n",queue[front]);
-    front=(front+1)%N;
-  }
+  x=(struct node*)malloc(sizeof(struct node));
+  y=(struct node*)malloc(sizeof(struct node));
+  z=(struct node*)malloc(sizeof(struct node));
+  x->data=10;
+  x->link=y;
+
+  y->data=20;
+  y->link=z;
+
+  z->data=30;
+  z->link=NULL;
+
+  printf("Address of first node:%x\n",x);
+  printf("Address of second node:%x\n",y);
+  printf("Address of third node:%x\n",z);
+
+
+  printf("|%d|%x|--->|%d|%x|--->|%d|%x|\n",x->data,x->link,y->data,y->link,z->data,z->link);
 }
 
-//display
-void display()
-{
-  if(front==-1 && rear==-1)
-  {
-    printf("The queue is empty\n");
-  }                         
-  else
-  {
-    int i=front;
-    printf("Queue is:-\n");
-    while(i!=rear)
-    {
-      printf("%d\t",queue[i]);
-      i=(i+1)%N;                  //to increase the size
-    }
-    printf("%d\t",queue[rear]);
-  }
-}
-
-//Peek:-to get the front value
-
-void peek()
-{
-  if(front==-1 && rear==-1)
-  {
-    printf("The queue is empty\n");
-  }
-  else
-  {
-    printf("%d\n",queue[front]);
-  }
-}
-
-void main(){
-
- int x, choice;
- while(1)
- {
-   printf("\n\n***** MENU *****\n");
-   printf("1.Push \n2.Delete \n3.Display \n4.Peek\n5. Exit");
-   printf("\nEnter your choice: ");
-   scanf("%d",&choice);
-   switch(choice)
-   {
-     case 1:printf("Enter the value to be insert: ");
-            scanf("%d",&x);
-            enqueue(x);
-            break;
-     case 2:dequeue();
-            break;
-     case 3:display();
-            break;
-     case 4:peek();
-            break;
-     case 5:printf("****EXIT****\n");
-            exit(0);
-     default:printf("\nInvalid choice!!! Try again!!!");
-   }
-}
-}
